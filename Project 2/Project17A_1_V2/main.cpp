@@ -12,11 +12,12 @@
 #include <fstream>
 #include <string>
 #include <fstream>
+#include "cColor.h"
 using namespace std;
 
 //Structures
 
-struct color{
+struct cColor{
         string name;
         char cCode[5];
     };
@@ -27,9 +28,11 @@ void Menu();
 int getN();
 void def(int);
 void instruct();        //Instructions
-void game1(color,string [],int &,int &);   //Function to hold game
-void game2(color [],string []);
-void cCLR(color &,int);
+void game1(cColor,string [],int &,int &);   //Function to hold game
+void game2(cColor [],string []);
+void game3(cColor,string []);
+void cCLR(cColor &,int);
+char test(cColor);
 
 //Execution Starts here
 int main(int argc, char** argv) {
@@ -57,7 +60,7 @@ int main(int argc, char** argv) {
                 cout<<"Losses: "<<nLoses<<endl;
                 cout<<endl;
                 //Play Game
-                color comp;
+                cColor comp;
                 cCLR(comp,5);
                 game1(comp,list,nWins,nLoses);
                 //Output to same file
@@ -71,16 +74,35 @@ int main(int argc, char** argv) {
                 break;
             }
             case 3:{
-                color player[2];
+                cColor player[2];
                 game2(player,list);
             }
+            case 4:{
+                /*cColor user;
+                cColor comp;
+                
+                cCLR(comp,5);
+                test(comp);
+                cout<<"quack"<<endl;
+                game3(user,list);*/
+                color quack("Quack","BBBBB");
+                cout<<"Name: "<<quack.getname()<<endl;
+                cout<<"Code: "<<quack.getCode()<<endl;
+            }
             default:   def(inN);}
-        }while(inN<4);
+        }while(inN<5);
         return 0;
     return 0;
 }
+char test(cColor c){
+    return c.cCode[0];
+    return c.cCode[1];
+    return c.cCode[2];
+    return c.cCode[3];
+    return c.cCode[4];
+}
 
-void cCLR(color &c, int k){
+void cCLR(cColor &c, int k){
     srand(time(0));
     int clrnum;
     for(int i=0;i<k;i++){
@@ -118,7 +140,11 @@ void cCLR(color &c, int k){
     }
 }
 
-void game1(color c,string p[],int &w,int &l){
+void game3(cColor c, string p[]){
+    
+}
+
+void game1(cColor c,string p[],int &w,int &l){
     char win='n';
     int des,
         turns=0;
@@ -228,7 +254,7 @@ void game1(color c,string p[],int &w,int &l){
     delete [] guess;
 }
 
-void game2(color c[],string p[]){
+void game2(cColor c[],string p[]){
     char win='n';
     int des,
         turns1=0,
@@ -479,6 +505,7 @@ void Menu(){
             cout<<"Type 1 for the Instructions"<<endl;
             cout<<"Type 2 to guess the computer's code"<<endl;
             cout<<"Type 3 to Play against a friend on the same computer"<<endl;
+            cout<<"Type 4 to have the computer guess your code"<<endl;
             cout<<"Type anything else to exit"<<endl;
 }
 
