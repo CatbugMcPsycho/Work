@@ -8,15 +8,6 @@
 #include <string>
 #include <cstring>
 
-/*void color::setCode(char c[]){
-    for(int i=0;i<5; i++){
-        cCode[i]=c[i];
-    }
-}
-
-void color::setname(string n){
-    name=n;
-}*/
 
 const char* color::getCode() const{
     return cCode;

@@ -76,6 +76,7 @@ int main(int argc, char** argv) {
             case 3:{
                 cColor player[2];
                 game2(player,list);
+                break;
             }
             case 4:{
                 cColor user;
@@ -88,14 +89,15 @@ int main(int argc, char** argv) {
                 for(int i=0;i<5;i++){
                     cout<<user.cCode[i]<<endl;
                 }
-                char test;
+                char test[10];
                 cout<<"enter"<<endl;
                 cin>>test;
-                user.name=&test;
+                user.name=test;
                 color quack(user.name,user.cCode);
                 cout<<"Name: "<<quack.getname()<<endl;
                 cout<<"Code: "<<quack.getCode()<<endl;
-                ~color();
+                quack.~color();
+                break;
             }
             default:   def(inN);}
         }while(inN<5);

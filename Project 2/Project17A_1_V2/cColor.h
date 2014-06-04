@@ -17,8 +17,6 @@ private:
     char cCode[5];
 public:
     color(char *,char []);
-    void setCode(char []);
-    void setname(string);
     const char *getCode()const;
     const char *getname()const;
     ~color();
