@@ -26,15 +26,18 @@ const char* color::getname() const{
     return name;
 }
 
-color::color(char *n,char *c){
+color::color(char *n,char c[]){
     name=new char[strlen(n)+1];
-    cCode=new char[strlen(c)+1];
+    //cCode=new char[strlen(c)+1];
     strcpy(name,n);
-    strcpy(cCode,c);
+    //strcpy(cCode,c);
+    for(int i=0;i<5;i++){
+        cCode[i]=c[i];
+        }
 }
 
 color::~color(){
     delete [] name;
-    delete [] cCode;
+    //delete [] cCode;
 }
 

@@ -14,9 +14,9 @@ using namespace std;
 class color{
 private:
     char *name;
-    char *cCode;
+    char cCode[5];
 public:
-    color(char *,char *);
+    color(char *,char []);
     void setCode(char []);
     void setname(string);
     const char *getCode()const;

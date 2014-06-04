@@ -18,7 +18,7 @@ using namespace std;
 //Structures
 
 struct cColor{
-        string name;
+        char *name;
         char cCode[5];
     };
 //No Global Constants
@@ -78,16 +78,24 @@ int main(int argc, char** argv) {
                 game2(player,list);
             }
             case 4:{
-                /*cColor user;
-                cColor comp;
-                
+                cColor user;
+                /*cColor comp;                
                 cCLR(comp,5);
                 test(comp);
                 cout<<"quack"<<endl;
                 game3(user,list);*/
-                color quack("Quack","BBBBB");
+                cCLR(user,5);
+                for(int i=0;i<5;i++){
+                    cout<<user.cCode[i]<<endl;
+                }
+                char test;
+                cout<<"enter"<<endl;
+                cin>>test;
+                user.name=&test;
+                color quack(user.name,user.cCode);
                 cout<<"Name: "<<quack.getname()<<endl;
                 cout<<"Code: "<<quack.getCode()<<endl;
+                ~color();
             }
             default:   def(inN);}
         }while(inN<5);
