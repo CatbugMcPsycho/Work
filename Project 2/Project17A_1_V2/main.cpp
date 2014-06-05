@@ -94,8 +94,8 @@ int main(int argc, char** argv) {
                 cin>>test;
                 user.name=test;
                 color quack(user.name,user.cCode);
-                cout<<"Name: "<<quack.getname()<<endl;
-                cout<<"Code: "<<quack.getCode()<<endl;
+                //cout<<"Name: "<<quack.getname()<<endl;
+                //cout<<"Code: "<<quack.getCode()<<endl;
                 quack.~color();
                 break;
             }
@@ -103,13 +103,6 @@ int main(int argc, char** argv) {
         }while(inN<5);
         return 0;
     return 0;
-}
-char test(cColor c){
-    return c.cCode[0];
-    return c.cCode[1];
-    return c.cCode[2];
-    return c.cCode[3];
-    return c.cCode[4];
 }
 
 void cCLR(cColor &c, int k){
