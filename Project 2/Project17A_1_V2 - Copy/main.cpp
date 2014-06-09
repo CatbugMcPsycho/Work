@@ -40,7 +40,7 @@ void instruct();                            //Instructions
 void game1(cColor,string [],int &,int &);   //Function to hold game
 void game2(cColor [],string []);            //Function for head to head
 void game3(sColor,char [],string []);       //Function for comp guessing
-void game4(cColor,string [],int &,int &);   //Function to hold game
+void game4(sColor,string [],int &,int &);   //Function to hold game
 void cCLR(cColor &,int);                    //RNG for code
 void nClr(char [],char [],int);             //Selective RNG
 
@@ -125,8 +125,7 @@ int main(int argc, char** argv) {
                 cout<<endl;
                 
                 //Play Game
-                cColor comp;
-                cCLR(comp,5);
+                sColor comp;
                 game4(comp,list,nWins,nLoses);
                 
                 //Output to same file
@@ -717,11 +716,11 @@ void game3(sColor u, char c[],string p[]){\
         turns++;
         
         //Set tries
-        quack.copyTries(cmTR);
+      quack.copyTries(cmTR);
        
         //Set comp colors
         nClr(cmCD,cmTR,5);
-        quack.cmpClr(cmCD);
+       // quack.cmpClr(cmCD);
         
         //quack.copycCode(cmCD);
         for(int i=0;i<5;i++){
@@ -791,13 +790,27 @@ void game3(sColor u, char c[],string p[]){\
     quack.~color();
 }
 
-void game4(cColor c,string p[],int &w,int &l){
-    char win='n';
+void game4(sColor c,string p[],int &w,int &l){
+    char usernm[10],
+            cmT[5],
+            win='n';
     int des,
         turns=0;
     char *guess;
     guess=new char[5];
-    iColor game(c.cCode,guess);
+    //Enter name
+    cout<<"Please enter your name."<<endl;
+    cin>>usernm;
+    c.name=usernm;
+    iColor game(c.name,c.cCode,guess);
+    game.setTries();
+    game.copyTries(cmT);
+    nClr(c.cCode,cmT,5);
+    game.setcCode(c.cCode);
+    for(int i=0;i<5;i++){
+        cout<<c.cCode[i];
+        }
+        cout<<endl;
     //Turn limit is 10, stops there
     while(turns!=10){
         turns++;        
@@ -902,6 +915,7 @@ void game4(cColor c,string p[],int &w,int &l){
 
     cout<<endl;
     delete [] guess;
+    game.~color();
 }
 
 
@@ -917,6 +931,8 @@ void instruct(){
     cout<<"Whether you have a right color in the right "<<endl;
     cout<<"position or a right color in the wrong position "<<endl;
     cout<<"by the Rs and Ws at the end of your code."<<endl;
+    cout<<"If there are no R or W in a certain place that means "<<endl;
+    cout<<"that that letter does not exist in the combination."<<endl;
     cout<<"(Rs for right spot and color and Ws for only right color)"<<endl;
     cout<<endl;
 }

@@ -8,6 +8,7 @@
 #include "cColor.h"
 #include <string>
 #include <cstring>
+#include <iostream>
 #include <time.h>
 using namespace std;
 
@@ -58,6 +59,11 @@ void color::setTries(){
         tries[i]='W';
         }
 }
+/*
+color::color(){
+    cout << "parent" << endl;
+}
+*/
 
 //Copy user info into class
 color::color(char *n,char u[],char c[]){
@@ -76,6 +82,12 @@ color::color(char *n,char u[],char c[]){
         tries[i]='W';
     }
 }
+
+color::color(char *n){
+    name=new char[strlen(n)+1];
+    strcpy(name,n);
+}
+
 
 //Sets Comp combo
 void color::cmpClr(char c[]){

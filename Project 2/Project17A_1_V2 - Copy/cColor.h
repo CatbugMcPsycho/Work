@@ -22,6 +22,8 @@ private:
 public:
     //Initial info
     color(char *,char [],char []);
+    color(char *);
+   // color();
     //Computer color combo
     void cmpClr(char []);
     //User color combo

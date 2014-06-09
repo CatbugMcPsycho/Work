@@ -130,7 +130,7 @@ void nClr(char c[],char t[],int){
             char wrong=c[i];
                 //Random number 0 to 5
                 clrnum=(rand()%5)+1;
-
+                
                 //Changes numbers into colors
                 switch(clrnum){
                     case 1:{
@@ -159,7 +159,7 @@ void nClr(char c[],char t[],int){
                        break;
                     }
                 }
-            
+             
         }
         //If it was the right color
         //But not right place

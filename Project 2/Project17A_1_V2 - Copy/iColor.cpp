@@ -6,22 +6,24 @@
  */
 
 #include "iColor.h"
+#include "cColor.h"
 #include <string>
 #include <cstring>
 #include <time.h>
+#include <iostream>
 using namespace std;
-
+/*
 //Set name
-iColor::iColor(char c[], char u[]){
+iColor(char *n,char u[], char c[]):color(n,u,c){
     for(int i=0;i<5;i++){
         cCode[i]=c[i];
     }
     for(int i=0;i<5;i++){
         uCode[i]=u[i];
     }
-    
+    cout << "child" << endl;
 }
-
+*/
 
 //Resets the comp color combo
 void iColor::setcCode(char c[]){
@@ -47,12 +49,7 @@ const char* iColor::getuCode() const{
     return uCode;
 }
 
-//Sets tries
-void iColor::setTries(){
-    for(int i=0;i<5;i++){
-        tries[i]='W';
-        }
-}
+
 
 //Returns tries
 const char* iColor::getTries() const{
@@ -63,18 +60,18 @@ const char* iColor::getTries() const{
 void iColor::check(){
     //Checks if any are right color and position
             for(int i=0;i<5;i++){
-                if(cCode[i]==uCode[i]){
+                if(uCode[i]==cCode[i]){
                     tries[i]='R';
                 }
                 
                 //Checks if any are the right color
                 else{
-                    if((cCode[i]==uCode[0]|| 
-                        cCode[i]==uCode[1]||
-                        cCode[i]==uCode[2]||
-                        cCode[i]==uCode[3]||
-                        cCode[i]==uCode[4])&&
-                        cCode[i]!=uCode[i]){
+                    if((uCode[i]==cCode[0]|| 
+                        uCode[i]==cCode[1]||
+                        uCode[i]==cCode[2]||
+                        uCode[i]==cCode[3]||
+                        uCode[i]==cCode[4])&&
+                        uCode[i]!=cCode[i]){
                         tries[i]='W';
                     }
                     //If none then bad

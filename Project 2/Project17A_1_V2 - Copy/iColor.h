@@ -18,8 +18,10 @@ class iColor : public color{
         char uCode[5];
         char tries[5];
     public:
-        //Set name
-        iColor(char [],char []);
+        //Default Constructor
+        //iColor():color(){};
+        //Constructor #2
+        iColor(char *n,char u[],char c[]):color(n,u,c){}
         //Resets cCode
         void setcCode(char []);
         //Return computer colors
@@ -28,8 +30,6 @@ class iColor : public color{
         void setuCode(char []);
         //Return user colors
         const char *getuCode()const;
-        //tries construct
-        void setTries();
         //Return tries
         const char *getTries()const;
         //Check combo
