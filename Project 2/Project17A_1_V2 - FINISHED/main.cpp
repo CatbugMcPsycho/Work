@@ -42,7 +42,7 @@ void game2(cColor [],string []);            //Function for head to head
 void game3(sColor,char [],string []);       //Function for comp guessing
 void game4(sColor,string [],int &,int &);   //Function to hold game
 void cCLR(cColor &,int);                    //RNG for code
-void nClr(char [],char [],int);             //Selective RNG
+void nClr(char [],char []);             //Selective RNG
 
 //Execution Starts here
 int main(int argc, char** argv) {
@@ -145,10 +145,9 @@ int main(int argc, char** argv) {
     return 0;
 }
 
-void nClr(char c[],char t[],int){
+void nClr(char c[],char t[]){
     int clrnum;
     for(int i=0;i<5;i++){
-        cout<<t[i]<<endl;
         //If its completely wrong
         if(t[i]=='B'){
             char wrong=c[i];
@@ -692,13 +691,11 @@ void game3(sColor u, char c[],string p[]){\
         cout<<"Please enter the letters ";
         cout<<"for your guess(capital letters only)."<<endl;
         cout<<endl;
-        
-    for(int i=0;i<5;i++){
-        cout<<"Color"<<i<<": "; 
-        cin>>u.cCode[i];
-        cout<<endl;
-    }
-    
+        for(int i=0;i<5;i++){
+                cout<<"Color"<<i<<": "; 
+                cin>>u.cCode[i];
+                cout<<endl;
+        }
     //Initialize class
     color quack(u.name,u.cCode,c);
     
@@ -717,10 +714,14 @@ void game3(sColor u, char c[],string p[]){\
         
         //Set tries
       quack.copyTries(cmTR);
-       
+       //Copy class code
+        for(int i=0;i<5;i++){
+            cout<<cmTR[i];
+        }
+      cout<<endl;
         //Set comp colors
-        nClr(cmCD,cmTR,5);
-       // quack.cmpClr(cmCD);
+        nClr(cmCD,cmTR);
+        quack.setcCode(cmCD);
         
         //quack.copycCode(cmCD);
         for(int i=0;i<5;i++){
@@ -805,7 +806,7 @@ void game4(sColor c,string p[],int &w,int &l){
     iColor game(c.name,c.cCode,guess);
     game.setTries();
     game.copyTries(cmT);
-    nClr(c.cCode,cmT,5);
+    nClr(c.cCode,cmT);
     game.setcCode(c.cCode);
     for(int i=0;i<5;i++){
         cout<<c.cCode[i];

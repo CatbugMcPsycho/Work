@@ -12,6 +12,24 @@
 #include <time.h>
 using namespace std;
 
+//Copy user info into class
+color::color(char *n,char u[],char c[]){
+    name=new char[strlen(n)+1];
+    strcpy(name,n);
+    //copy user code
+    for(int i=0;i<5;i++){
+        uCode[i]=u[i];
+    }
+    //copy comp code
+    for(int i=0;i<5;i++){
+        cCode[i]=c[i];
+    }
+    //initial tries
+    for(int i=0;i<5;i++){
+        tries[i]='W';
+    }
+}
+
 //Returns computer Color combo
 const char* color::getcCode() const{
     return cCode;
@@ -53,53 +71,17 @@ void color::setcCode(char c[]){
     }
 }
 
-//Sets tries
-void color::setTries(){
-    for(int i=0;i<5;i++){
-        tries[i]='W';
-        }
-}
-/*
-color::color(){
-    cout << "parent" << endl;
-}
-*/
-
-//Copy user info into class
-color::color(char *n,char u[],char c[]){
-    name=new char[strlen(n)+1];
-    strcpy(name,n);
-    //copy user code
-    for(int i=0;i<5;i++){
-        uCode[i]=u[i];
-    }
-    //copy comp code
-    for(int i=0;i<5;i++){
-        cCode[i]=c[i];
-    }
-    //initial tries
-    for(int i=0;i<5;i++){
-        tries[i]='W';
-    }
-}
-
-color::color(char *n){
-    name=new char[strlen(n)+1];
-    strcpy(name,n);
-}
-
-
-//Sets Comp combo
-void color::cmpClr(char c[]){
-    for(int i=0;i<5;i++){
-        cCode[i]=c[i];
-        }
-}
-
 //Sets USer combo
 void color::setuCode(char u[]){
     for(int i=0;i<5;i++){
         uCode[i]=u[i];
+        }
+}
+
+//Sets tries
+void color::setTries(){
+    for(int i=0;i<5;i++){
+        tries[i]='W';
         }
 }
 

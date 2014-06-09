@@ -12,18 +12,6 @@
 #include <time.h>
 #include <iostream>
 using namespace std;
-/*
-//Set name
-iColor(char *n,char u[], char c[]):color(n,u,c){
-    for(int i=0;i<5;i++){
-        cCode[i]=c[i];
-    }
-    for(int i=0;i<5;i++){
-        uCode[i]=u[i];
-    }
-    cout << "child" << endl;
-}
-*/
 
 //Resets the comp color combo
 void iColor::setcCode(char c[]){

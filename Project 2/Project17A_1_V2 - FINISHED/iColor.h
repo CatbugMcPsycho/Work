@@ -18,8 +18,6 @@ class iColor : public color{
         char uCode[5];
         char tries[5];
     public:
-        //Default Constructor
-        //iColor():color(){};
         //Constructor #2
         iColor(char *n,char u[],char c[]):color(n,u,c){}
         //Resets cCode
